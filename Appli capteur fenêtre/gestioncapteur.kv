@@ -1,0 +1,92 @@
+<GestionCapteur>
+	#name: 'gestioncapteur'
+
+    Label:
+        id: gestioncapteur
+        font_size: 30
+        pos_hint: {"center_x":0.5,"top":1.45}
+        text: "Gestion nouveau capteur"
+    Label:
+        id: idCapteur
+        font_size: 20
+        pos_hint: {"center_x":0.5,"top":1.15}
+        text:""
+    Button:
+        text: "Associer un nouveau capteur"
+        size_hint: 0.25, 0.1
+        pos_hint: {"center_x":0.5,"center_y":0.3}
+        on_press: root.on_change_ecran()
+
+
+<AssocierCapteur>
+	#name: 'associercapteur'
+
+    Label:
+        font_size: 30
+        pos_hint: {"center_x":0.5,"top":1.45}
+        text: "Associer nouveau capteur"
+    Button:
+        text: "Retour gestion capteur"
+        size_hint: 0.2, 0.1
+        pos_hint: {"left":1}
+        on_press: root.on_retour()
+    Button:
+        text: "Validation et référence"
+        size_hint: 0.2, 0.1
+        pos_hint: {"right":1}
+        on_press: root.on_validation_reference()
+    GridLayout:
+		cols:2
+		rows:3
+		size_hint:.5,.4
+		pos_hint:{"center_x":0.5,"center_y":0.5}
+		Label:
+			font_size: 25
+			text: "Bâtiment"
+		Spinner:
+			id: batiment
+            text:"" #'Sélectionner batiment'
+			values: 
+            on_text: root.on_retour_batiment()
+		Label:
+			font_size: 25
+			text: "Etage"
+		Spinner:
+			id: etage
+            text:"" #'Sélectionner etage'
+			values: 
+            on_text: root.on_retour_etage()
+		Label:
+			font_size: 25
+			text: "Salle"
+		Spinner:
+			id: salle
+            text:"" # Sélectionner salle
+            values:
+            on_text: root.on_retour_salle()
+    Label:
+        id: messageChoix
+        font_size: 18
+        pos_hint: {"center_x":0.5,"top":0.65}
+        values:
+        text: ""
+
+<ReferenceCapteur>
+    #name: 'referencecapteur'
+
+    Label:
+        font_size: 30
+        pos_hint: {"center_x":0.5,"top":1.45}
+        text: "Référencer nouveau capteur"
+
+    Label:
+        id: reference
+        font_size: 20
+        pos_hint: {"center_x":0.5,"top":1.15}
+        text:""
+
+    Button:
+        text: "Retour gestion capteur"
+        size_hint: 0.2, 0.1
+        pos_hint: {"left":1}
+        on_press: root.on_retour()
